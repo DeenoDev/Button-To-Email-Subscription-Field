@@ -1,0 +1,130 @@
+:root {
+    --main-color: white;
+    --accent-color: dodgerblue;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: var(--accent-color);
+}
+
+body,
+#singular-form button,
+.container>#singular-form>#input-container>input {
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.container {
+    width: 19rem;
+    height: 5rem;
+    padding: 10px;
+    background-color: var(--main-color);
+    text-align: center;
+    border-radius: 3rem;
+    overflow: hidden;
+    transition: width .4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.container>#singular-form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: --main-color;
+}
+
+.container>#singular-form button {
+    width: 9rem;
+    padding: 0;
+    border: none;
+    outline: none;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+
+.container>#singular-form>button#trigger {
+    padding: 0;
+    width: 100%;
+    color: var(--accent-color);
+    background-color: transparent;
+    z-index: 3;
+}
+
+.container>#singular-form>#input-container {
+    z-index: 2;
+}
+
+.container>#singular-form>#input-container>input {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: var(--main-color);
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    padding: 0 26% 0 3%;
+    opacity: 0;
+    transform: scale(0);
+    transition: all .4s ease .4s;
+}
+
+.container>#singular-form>#input-container>button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: var(--accent-color);
+    color: var(--main-color);
+    opacity: 0;
+    transform: scale(0);
+    transition: all .4s ease .4s;
+}
+
+.container>#singular-form>#success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-color);
+    font-weight: bold;
+    z-index: 1;
+}
+
+.container>#singular-form>button#trigger,
+.container>#singular-form>#input-container,
+.container>#singular-form>#success {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.container>#singular-form>button#trigger {
+    transition: all .4s ease;
+}
+
+.container>#singular-form>#input-container {
+    transform: scale(1);
+    opacity: 1;
+    transition: all .4s ease .4s;
+}
+
+.container>#singular-form>#success {
+    transition: all .2s ease .4s;
+}
+
+.container>#singular-form>button#trigger.shown,
+.container>#singular-form>#input-container.shown,
+.container>#singular-form>#success.shown,
+.container>#singular-form>#input-container>button.shown,
+.container>#singular-form>#input-container>input.shown {
+    transform: scale(1);
+    opacity: 1;
+}
